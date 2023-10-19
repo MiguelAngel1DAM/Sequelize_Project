@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ mode === 'add' ? 'Añadir Sector' : 'Editar Sector' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeDialog(false)">Cancelar</ion-button>
+      <ion-button (click)="saveSector()">{{ mode === 'add' ? 'Guardar' : 'Actualizar' }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="mode === 'add'">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="sectorName" name="sectorName"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="mode === 'edit'">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="sectorName" name="sectorName"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
