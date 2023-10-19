@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Willkommen"});
 });
 
+require("./routes/sector.routes")(app);
 require("./routes/worker.routes")(app);
 
 const PORT = process.env.PORT || 8080;
