@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'sectors-page',
     loadChildren: () => import('./sectors-page/sectors-page.module').then( m => m.SectorsPagePageModule)
   },
+  {
+    path: 'workers-page',
+    loadChildren: () => import('./workers-page/workers-page.module').then( m => m.WorkersPagePageModule)
+  },
+  {
+    path: 'add-workers',
+    loadChildren: () => import('./add-workers/add-workers.module').then( m => m.AddWorkersPageModule)
+  },
 ];
 
 @NgModule({

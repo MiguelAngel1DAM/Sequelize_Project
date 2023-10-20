@@ -13,7 +13,7 @@ export class HomePage {
   gotoSectors(){
     this.router.navigateByUrl("/sectors-page");
   }
-  // gotoSales(){
-  //   this.router.navigateByUrl("/form-sales");
-  // }
+  gotoworkers(){
+    this.router.navigateByUrl("/workers-page");
+  }
 }
