@@ -1,5 +1,4 @@
 # Sequelize_Project
--- https://documenter.getpostman.com/view/29847204/2s9YRB3XZH
 
 ## POSTMAN
 
