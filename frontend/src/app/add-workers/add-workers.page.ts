@@ -13,6 +13,7 @@ export class AddWorkersPage implements OnInit {
   workerForm: FormGroup;
   isSubmitted: boolean = false;
   capturedPhoto: string = "";
+  blob: File | undefined;   
 
   constructor(
     public formBuilder: FormBuilder,
@@ -30,6 +31,7 @@ export class AddWorkersPage implements OnInit {
     this.workerForm.reset();
     this.isSubmitted = false;
     this.capturedPhoto = "";
+    this.blob = undefined;
   }
 
   ngOnInit() {
@@ -46,7 +48,6 @@ export class AddWorkersPage implements OnInit {
   }
 
   pickImage() {
-
     this.photoService.pickImage().then(data => {
       this.capturedPhoto = data.webPath;
     });
@@ -54,6 +55,7 @@ export class AddWorkersPage implements OnInit {
 
   discardImage() {
     this.capturedPhoto = "";
+    this.blob = undefined;
   }
 
   async submitForm() {
@@ -62,13 +64,12 @@ export class AddWorkersPage implements OnInit {
       console.log('Please provide all the required values!')
       return false;
     } else {
-      let blob = null;
-      if (this.capturedPhoto != "") {
+      if (this.capturedPhoto !== "") {
         const response = await fetch(this.capturedPhoto);
-        blob = await response.blob();
+        this.blob = new File([await response.blob()], 'photo.jpg');
       }
 
-      this.workerService.createWorker(this.workerForm.value, blob).subscribe(data => {
+      this.workerService.createWorker(this.workerForm.value, this.blob).subscribe(data => {
         console.log("Photo sent!");
         this.router.navigateByUrl("/workers-page");
       })

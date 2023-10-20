@@ -78,4 +78,8 @@ export class SectorsPagePage implements OnInit {
         this.getAllSectors();
       });
   }
+
+  gotoworkers(){
+    this.router.navigateByUrl("/workers-page");
+  }
 }

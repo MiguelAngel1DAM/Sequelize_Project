@@ -13,6 +13,9 @@ export class WorkersPagePage implements OnInit {
 
   constructor(private workerService: WorkerService, private router: Router) { }
 
+  ionViewWillEnter(){
+    this.loadWorkers();
+  }
   ngOnInit() { 
     this.loadWorkers();
   }
@@ -34,6 +37,13 @@ export class WorkersPagePage implements OnInit {
     }
 
   goToUpdateWorker(id: number) {
-    this.router.navigateByUrl(`/update-worker/${id}`);
+    this.router.navigateByUrl(`/update-workers/${id}`);
+  }
+
+  gotoSectors(){
+    this.router.navigateByUrl("/sectors-page");
+  }
+  gotohome(){
+    this.router.navigateByUrl("/home");
   }
 }

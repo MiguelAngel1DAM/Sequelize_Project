@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'add-workers',
     loadChildren: () => import('./add-workers/add-workers.module').then( m => m.AddWorkersPageModule)
   },
+  {
+    path: 'update-workers/:id',
+    loadChildren: () => import('./update-workers/update-workers.module').then( m => m.UpdateWorkersPageModule)
+  },
 ];
 
 @NgModule({
